@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title>Convert from Fahrenheit to Centigrade</title>
+    <script>
+        let again = 999;
+        var celsius;
+        var fahrenheit;
+
+        do {
+            fahrenheit = parseInt(prompt("Enter Fahrenheit temperature from -100 to +212"));
+
+            if (fahrenheit >=-100 && fahrenheit <=212) {
+                celsius = (fahrenheit - 32) * 5/9;
+                alert("Fahrenheit temperature is " + fahrenheit +
+            "\n\nCelsius temperature is " + celsius.toFixed(1));
+            }
+            else {
+                alert("You entered " + fahrenheit + "," + "\nEntry must range from -100 to +212.")
+            }
+            again = prompt("If you want repeat calculating type 999", 999)
+        }
+        while (again == 999);
+    </script>
+</head>
+<body>
+    <main>
+        <h1>Thanks for using the temperature converter</h1>
+    </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">	
+    <title>Show letter grade</title>
+    <script>
+        let again = 999;
+        var gradeNumber;
+
+        do {
+            gradeNumber = parseInt(prompt("Enter grade number from 0 to 100"));
+
+            if (gradeNumber < 60 && gradeNumber >= 0) {
+                alert("Number grade = " + gradeNumber + "\n\Letter grade  = F ");
+            }
+            else if (gradeNumber > 60 && gradeNumber < 67) {
+                alert("Number grade = " + gradeNumber + "\n\Letter grade  = D ");
+            }
+			else if (gradeNumber > 68 && gradeNumber < 79) {
+                alert("Number grade = " + gradeNumber + "\n\Letter grade  = C ");
+			}
+			else if (gradeNumber > 80 && gradeNumber < 87) {
+                alert("Number grade = " + gradeNumber + "\n\Letter grade  = B ");
+			}
+            else if (gradeNumber > 88 && gradeNumber <= 100) {
+                alert("Number grade = " + gradeNumber + "\n\Letter grade  = A ");
+            }
+            again = prompt("If you want repeat - type 999", 999)
+        }
+        while (again == 999);
+    </script>
+</head>
+<body>
+    <main>
+        <h1>This page is displayed after the JavaScript is executed</h1>
+    </main>
+</body>
+</html>

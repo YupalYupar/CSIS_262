@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title>Sum of Numbers</title>
+    <script>
+		let again = 'y';
+        var customNum;
+        const totals= [];
+
+        do {
+            customNum = parseInt(prompt("Enter any top number to sum \nfrom 1 through 100"));
+
+            if (customNum > 0 && customNum <= 100) {
+                for (let i = 0; i < customNum; i++) {
+                    totals[i] = i + 1;
+                }
+                let sum = 0;
+                for (var i = 0; i< totals.length; i++) {
+                    sum +=totals[i]
+                }
+                
+                alert("The sum of the numbers from 1 through " + customNum + " is " + sum);
+
+                let displayString = "";
+                let newString = "";
+                for (let i = 0; i < totals.length; i++) {
+                    displayString += totals[i] + "+"
+                    newString = displayString
+                    newString = newString.substr(0, newString.length - 1)
+                }
+                alert("The sum for an entry " + customNum + " is " + newString );
+            }
+            else {
+                alert ("Please enter a number between 1 and 100");
+            }
+
+            again = prompt("If you want repeat - type 'y'", 'y');
+        }
+        while (again == 'y');
+    </script>
+</head>
+<body>
+    <main>
+        <!-- Will show after JavaScript has run -->
+        <h1>Thanks for using the Sum of Numbers application!</h1>
+    </main>
+</body>
+</html>
