@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="mpg.css">
+    <title>Calculate Miles Per Gallon</title>
+</head>
+<body>
+    <main>
+        <h1>Calculate Miles Per Gallon</h1>
+        <div>
+            <label for="miles">Miles Driven : </label>
+            <input type="text" id="miles">
+        </div>
+        <div>
+            <label for="gallons">Gallons of Gas Used : </label>
+            <input type="text" id="gallons">
+        </div>
+        <div>
+            <label for="mpg">Miles Per Gallon : </label>
+            <input type="text" id="mpg" disabled>
+        </div>
+        <div>
+            <label>&nbsp;</label>
+            <input type="button" id="calculate" value="Calculate MPG">
+        </div>
+        <div>
+            <label>&nbsp;</label>
+            <input type="button" id="deleting" value="Clear Entries">
+        </div>
+    </main>
+
+    <script>
+        "use strict";
+        var $ = function(id) {
+            return document.getElementById(id);
+        };
+        
+        function myClick() {
+            var miles = parseFloat($("miles").value);
+            var gallons = parseFloat($("gallons").value);
+
+            if ( isNaN(miles) || miles <= 0 ) {
+                alert ("Miles must be numeric and greater than zero");
+                $("miles").focus();
+            }
+            else if (isNaN(gallons) || gallons <= 0 ) {
+                alert ("Gallons must be numeric and greater than zero");
+                $("gallons").focus();
+            }
+            else {
+                $("mpg").value = (miles / gallons).toFixed(1);
+            };
+        };
+
+        function yourClick() {
+            $("miles").value = "";
+            $("gallons").value = "";
+            $("mpg").value = "";
+        };
+        window.onload = function() {
+            $('calculate').addEventListener('click', myClick);
+            $('deleting').addEventListener('click', yourClick);
+            $("miles").focus();
+        }
+    </script>
+
+</body>
+</html>
