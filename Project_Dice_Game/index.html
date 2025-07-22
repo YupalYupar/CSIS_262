@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice_game</title>
+    <link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js_files/dice.js"></script>
+</head>
+<body>
+    <h1>Dice game for two players</h1>
+    <form action="game.html" method="get"
+        name="players_setup" id="players_setup">
+        <fieldset>
+            <legend>Player 1 setup</legend>
+            <label for="player1_name">Enter Your name please: </label>
+            <input type="text" name="player1_name" id="player1_name">
+            <span class="user_color1"></span>
+            <span>*</span><br>
+            <label for="player1_color">Choose Your color: </label>
+            <select name="player1_color" id="player1_color">
+                <option style="color: red;" value="red">red</option>
+        		<option style="color: green;" value="green">green</option>
+        		<option style="color: purple" value="purple">purple</option>
+            </select><br>
+        </fieldset>
+        <fieldset>
+            <legend>Player 2 setup</legend>
+            <label for="player2_name">Enter Your name please: </label>
+            <input type="text" name="player2_name" id="player2_name">
+            <span class="user_color2"></span>
+            <span>*</span><br>
+            <label for="player2_color">Choose Your color: </label>
+            <select name="player2_color" id="player2_color">
+                <option id="aqua" style="color: aqua;" value="aqua">aqua</option>
+        		<option style="color: pink;" value="pink">pink</option>
+        		<option style="color: orange" value="orange">orange</option>
+            </select><br>
+        </fieldset>
+        <input type="submit" id="submit" value="Submit Request"><br>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dice.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="dice.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="player1">
+            <h1 class="player1_col">Player 1</h1>
+            <div class="gamer1"></div>
+        </div>
+        <div>
+            <input class="dice_button" type="button" value="Roll the Dice">
+            <div class="dice_img">
+            </div>
+            <input class="again_button" type="button" value="Play Again" disabled>
+        </div>
+        <div class="player2">
+            <h1 class="player2_col">Player 2</h1>
+            <div class="gamer2"></div>
+        </div>
+    </div>
+    <script>
+        var pics = ["url(images/dice_1.png)", "url(images/dice_2.png)", "url(images/dice_3.png)", 
+                    "url(images/dice_4.png)", "url(images/dice_5.png)", "url(images/dice_6.png)",];
+        var dice_arr = [];
+        var ply1_arr = [];
+        var ply2_arr = [];
+
+    $(document).ready(function(){    
+        let array1 = [];
+        let array2 = [];
+        let count = 0;
+        let sum1 = 0;
+        let sum2 = 0;
+        $(".dice_button").on('click', function(){
+            const randomNumber = Math.floor(Math.random() * pics.length);
+            console.log(randomNumber);
+            var img = pics[randomNumber];
+            
+            $(".dice_img").css("backgroundImage", img);
+            count++;
+            if (count %2 !== 0) {
+                array1.push(randomNumber + 1);
+                $(".gamer1").append("<p>" + array1.at(-1) + "</p>");
+            }  if (count % 2 == 0) {
+                array2.push(randomNumber + 1);
+                $(".gamer2").append("<p>" + array2.at(-1) + "</p>");
+            }  if (array2.length == 5) {
+                $(".dice_button").prop('disabled', true);
+                $(".dice_button").val("GAME OVER");
+                array1.forEach(number => {
+                    sum1 += number;
+                });
+                array2.forEach(number => {
+                    sum2 += number;
+                });
+                $(".gamer1").append("<p class='sum1'>" + sum1 + "</p>");
+                $(".gamer2").append("<p class='sum2'>" + sum2 + "</p>");
+                if ( sum1 > sum2 ) {
+                    $(".gamer1").append("<p> WINNER </p>");
+                } else if (sum1 == sum2) {
+                    $(".gamer2").append("<p> DRAW </p>");
+                    $(".gamer1").append("<p> DRAW </p>");
+                } else if (sum1 < sum2) {
+                    $(".gamer2").append("<p> WINNER </p>");
+                };
+                $(".again_button").prop('disabled', false);
+            };
+        });
+        $(".again_button").on("click", function() {
+            array1.length = 0;
+            array2.length = 0;
+            count = 0;
+            sum1 = 0;
+            sum2 = 0;
+            $(".gamer1").text("");
+            $(".gamer2").text("");
+            $(".dice_img").css("backgroundImage", "none");
+            $(".dice_button").val("Roll the Dice");
+            $(".dice_button").prop('disabled', false);
+            $(".again_button").prop('disabled', true);
+        });
+    });
+    </script>
+</body>
+</html>
